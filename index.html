@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Question</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border: 2px solid #FF6347; /* Tomato color */
+            background-color: #FF4500; /* OrangeRed */
+            color: white;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            margin-right: 4rem; 
+            margin-left: -3rem;
+        }
+
+        button:hover {
+            background-color: #FF6347;
+            transform: scale(1.1);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        #noBtn {
+            position: absolute;
+        }
+
+        img {
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>I love you, do you love me?</h1>
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+        <img id="loveImage" src="pic.png" alt="Love Image" width="400">
+    </div>
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const loveImage = document.getElementById('loveImage');
+
+        // Function to move the "No" button randomly
+        function moveNoButton() {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+        }
+
+        // Move the "No" button when the mouse gets close to it
+        noBtn.addEventListener('mouseover', moveNoButton);
+
+        // Show the image when "Yes" is clicked
+        yesBtn.addEventListener('click', function() {
+            loveImage.style.display = 'block';
+            loveImage.style.margin = '0 auto'; // Center the image horizontally
+            loveImage.style.marginTop = '30px';
+            // loveImage.style.justifyContent = 'center';
+            // loveImage.style.alignItems = 'center';
+
+        });
+    </script>
+</body>
+</html>
